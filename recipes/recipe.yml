@@ -23,8 +23,6 @@ modules:
     install:
       packages:
         - steam
-        - libavcodec-free
-        - libavcodec-freeworld
         - discord
     remove:
       packages:
@@ -32,7 +30,11 @@ modules:
         # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
-        - libavcodec
+    replace:
+      - from-repo: rpmfusion-free
+        packages:
+          - old: ffmpeg-free
+            new: ffmpeg
 
   - type: default-flatpaks
     configurations:
