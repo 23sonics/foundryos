@@ -20,21 +20,23 @@ modules:
   - type: dnf
     repos:
       nonfree: rpmfusion
+    replace:
+      - from-repo: rpmfusion-free
+        packages:
+          - old: ffmpeg-free
+            new: ffmpeg
+        allow-erasing: true
     install:
       packages:
-        - steam
         - discord
+        - steam
+      allow-erasing: true
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
         # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
-    replace:
-      - from-repo: rpmfusion-free
-        packages:
-          - old: ffmpeg-free
-            new: ffmpeg
 
   - type: default-flatpaks
     configurations:
