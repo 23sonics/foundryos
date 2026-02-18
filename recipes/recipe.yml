@@ -23,6 +23,7 @@ modules:
     install:
       packages:
         - steam
+        - libavcodec-free
         - libavcodec-freeworld
         - discord
     remove:
@@ -31,6 +32,7 @@ modules:
         # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+        - libavcodec
 
   - type: default-flatpaks
     configurations:
